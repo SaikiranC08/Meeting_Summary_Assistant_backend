@@ -9,5 +9,4 @@ COPY . .
 
 ENV PORT=8000
 
-# IMPORTANT: Use shell-form CMD so $PORT resolves
-CMD uvicorn main:app --host 0.0.0.0 --port $PORT
+CMD ["./start.sh"]
