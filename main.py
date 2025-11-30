@@ -28,6 +28,11 @@ class SummarizeRequest(BaseModel):
     text: str
 
 
+@app.get("/")
+def root():
+    return {"status": "backend is running"}
+
+
 @app.post("/api/summarize-meeting")
 async def api_summarize_meeting(payload: SummarizeRequest = Body(...)):
     """Summaries only - Phase B."""
@@ -64,3 +69,9 @@ async def api_upload_pdf(file: UploadFile = File(...)):
         import traceback
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
+
+import os
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
