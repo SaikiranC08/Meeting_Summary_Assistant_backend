@@ -16,5 +16,6 @@ spacy>=3.5.0
 dateparser>=1.1.8
 rapidfuzz>=2.15.1
 
+gunicorn==21.2.0
 
 
